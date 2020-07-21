@@ -11,6 +11,7 @@ class Friends extends React.Component {
     state = {
         friends: [] ,
         initialState :{
+            id: Date.now() ,
             name: "",
             age:"",
             email:"",
@@ -53,6 +54,14 @@ class Friends extends React.Component {
         })
         .then( res =>  {
             this.getData(res)
+            this.setState({
+                initialState:{
+                    id: Date.now() ,
+                    name: "",
+                    age:"",
+                    email:"",
+                }
+            })
 
         })
         .catch( err => console.log(err))
